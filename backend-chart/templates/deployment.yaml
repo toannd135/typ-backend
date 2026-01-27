@@ -2,14 +2,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name:  {{ include "backend-chart.fullname" . }}
-  labels: {{ include "backend-chart.labels" . | nindent 4}}
+  labels: {{ include "backend-chart.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
-    matchLabels: {{ include "backend-chart.selectorLabels" . | nindent 6}}
+    matchLabels: {{ include "backend-chart.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      labels: {{ include "backend-chart.selectorLabels" . | nindent 6}}
+      labels: {{ include "backend-chart.selectorLabels" . | nindent 8 }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
