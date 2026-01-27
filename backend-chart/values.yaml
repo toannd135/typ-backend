@@ -1,0 +1,67 @@
+replicaCount: 2
+
+image:
+  repository: toannd135/backend-app
+  tag: "v6"
+  pullPolicy: IfNotPresent
+
+resources:
+  requests:
+    memory: "256Mi"
+    cpu: "250m"
+  limits:
+    memory: "512Mi"
+    cpu: "500m"
+
+healthCheck:
+  enable: true
+  livenessProbe:
+    httpGet:
+      path: /health
+      port: 8080
+    initialDelaySeconds: 30
+    periodSeconds: 10
+    timeoutSeconds: 10
+    failureThreshold: 3
+  readinessProbe:
+    httpGet:
+      path: /health
+      port: 8080
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    timeoutSeconds: 10
+    failureThreshold: 3
+
+volumeMounts:
+  - name: application-properties-config-volume
+    mountPath: /config/application.properties
+    subPath: application.properties
+
+volumes:
+  - name: application-properties-config-volume
+    configMap:
+      name: backend-application-properties-configmap
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+service:
+  port: 8080
+  targetPort: 8080
+  type: ClusterIP
+
+
+secret:
+  mysql-host: mysql
+  mysql-port: "3306"
+  mysql-database: book_management
+  mysql-username: root
+  mysql-password: "123456"
+
+ingress:
+  enabled: true
+  className: nginx
+  host: api.bookmanager.edu.vn
+  path: / 
+  pathType: Prefix

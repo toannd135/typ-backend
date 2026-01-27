@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  {{ include "backend-chart.fullname" . }}
+  labels: {{ include "backend-chart.labels" . | nindent 4}}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels: {{ include "backend-chart.selectorLabels" . | nindent 6}}
+  template:
+    metadata:
+      labels: {{ include "backend-chart.selectorLabels" . | nindent 6}}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: 8080
+          
+          {{- if .Values.healthCheck.enable }}
+          livenessProbe: {{- toYaml .Values.healthCheck.livenessProbe  | nindent 12 }}
+          readinessProbe: {{- toYaml .Values.healthCheck.readinessProbe  | nindent 12 }}
+          {{- end }}
+
+          resources: {{- toYaml .Values.resources | nindent 12 }}
+          
+          volumeMounts:
+            - name: application-properties-config-volume
+              mountPath: /config/application.properties
+              subPath: application.properties
+          envFrom:
+            - secretRef:
+                name: {{ include "backend-chart.fullname" . }}-database-connection
+                optional: false
+      volumes:
+        - name: application-properties-config-volume
+          configMap:
+            name: {{ include "backend-chart.fullname" . }}-properties-configmap
+          
+
+      {{- with .Values.nodeSelector }}
+      nodeSelector: {{- toYaml . | nindent 8 }}
+      {{- end }}
+
+      {{- with .Values.tolerations }}
+      tolerations: {{- toYaml . | nindent 8 }}
+      {{- end }}
+
+      {{- with .Values.affinity }}
+      affinity: {{- toYaml . | nindent 8 }}
+      {{- end }}
