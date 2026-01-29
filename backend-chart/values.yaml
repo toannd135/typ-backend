@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: toannd135/backend-app
-  tag: "v6"
+  tag: v7
   pullPolicy: IfNotPresent
 
 resources:
