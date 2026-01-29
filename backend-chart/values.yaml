@@ -45,9 +45,9 @@ affinity: {}
 service:
   port: 8080
   targetPort: 8080
-  type: ClusterIP
-
-
+  type: NodePort
+  nodePort: 30002
+  
 secret:
   mysql-port: "3306"
   mysql-database: book_management
