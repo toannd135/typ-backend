@@ -53,10 +53,3 @@ secret:
   mysql-database: book_management
   mysql-username: mysqldb
   mysql-password: "123456"
-
-ingress:
-  enabled: true
-  className: nginx
-  host: api.bookmanager.edu.vn
-  path: / 
-  pathType: Prefix
