@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.bookmanagement.controller.BookControllerTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.608 s -- in com.bookmanagement.controller.BookControllerTest

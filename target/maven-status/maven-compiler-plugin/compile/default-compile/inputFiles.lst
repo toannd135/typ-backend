@@ -1,5 +1,5 @@
-/media/toannd/Data/TYP_Training/typ-training-2025/toannd_b23dccn831_training_gd1/Kubenestes-Lab/lab/book-management-system/backend/src/main/java/com/bookmanagement/model/Book.java
-/media/toannd/Data/TYP_Training/typ-training-2025/toannd_b23dccn831_training_gd1/Kubenestes-Lab/lab/book-management-system/backend/src/main/java/com/bookmanagement/controller/BookController.java
-/media/toannd/Data/TYP_Training/typ-training-2025/toannd_b23dccn831_training_gd1/Kubenestes-Lab/lab/book-management-system/backend/src/main/java/com/bookmanagement/service/BookService.java
-/media/toannd/Data/TYP_Training/typ-training-2025/toannd_b23dccn831_training_gd1/Kubenestes-Lab/lab/book-management-system/backend/src/main/java/com/bookmanagement/repository/BookRepository.java
-/media/toannd/Data/TYP_Training/typ-training-2025/toannd_b23dccn831_training_gd1/Kubenestes-Lab/lab/book-management-system/backend/src/main/java/com/bookmanagement/BookManagementApplication.java
+/media/toannd/Data/helm chart TYP/book-management-system/typ-frontend/backend/src/main/java/com/bookmanagement/repository/BookRepository.java
+/media/toannd/Data/helm chart TYP/book-management-system/typ-frontend/backend/src/main/java/com/bookmanagement/model/Book.java
+/media/toannd/Data/helm chart TYP/book-management-system/typ-frontend/backend/src/main/java/com/bookmanagement/controller/BookController.java
+/media/toannd/Data/helm chart TYP/book-management-system/typ-frontend/backend/src/main/java/com/bookmanagement/service/BookService.java
+/media/toannd/Data/helm chart TYP/book-management-system/typ-frontend/backend/src/main/java/com/bookmanagement/BookManagementApplication.java
