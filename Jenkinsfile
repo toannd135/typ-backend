@@ -4,7 +4,7 @@ pileline {
     environment {
         DOCKER_USERNAME = "toannd135"
         DOCKER_HUB_CREDENTIDALS = 'dockerhub-credential'
-        IMAGE_NAME = "$(DOCKER_USERNAME)/backend-app:v7"
+        IMAGE_NAME = "${DOCKER_USERNAME}/backend-app:v7"
     }
     
     stages {
