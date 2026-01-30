@@ -4,7 +4,7 @@ pipeline {
     environment {
         DOCKER_USERNAME = "toannd135"
         DOCKER_HUB_CREDENTIALS = 'dockerhub-credential'
-        IMAGE_NAME = "${DOCKER_USERNAME}/backend-app:v7"
+        IMAGE_NAME = "${DOCKER_USERNAME}/backend-app:1.0.0"
     }
     
     stages {
