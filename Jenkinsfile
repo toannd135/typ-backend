@@ -10,39 +10,30 @@ pipeline {
     stages {
         stage('Agent Information') {
             steps {
-                sh "whoami"
-                sh "pwd"
-                sh "uname -a"
+                sh "whoami; pwd; uname -a"
             }
         }
 
         stage('Clone Repository') {
             steps {
                 echo "Cloning source code..."
-                checkout scm
-
-                echo "clone completed"
-                sh "ls -la"
+                checkout scm 
+                echo "Clone completed"
             }
         }
+
         stage('Build Docker Image') {
             steps {
-                script {
-                    sh """
-                        docker build -t ${IMAGE_NAME} .
-                    """
-                    echo " Docker image built successfully!"
-                }
+                sh "docker build -t ${IMAGE_NAME} ."
+                echo "Docker image built successfully!"
             }
         }
+
         stage('Run Test') {
             steps {
-                script {
-                    echo "testing.........."
-                    sh """
-                        docker run --rm ${IMAGE_NAME} mvn test
-                    """
-                }
+                echo "Testing.........."
+                // Luôn dùng --rm để dọn dẹp container sau khi test
+                sh "docker run --rm ${IMAGE_NAME} mvn test"
             }
         }
     }
